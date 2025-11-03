@@ -1,0 +1,11 @@
+---
+extends: default
+
+rules:
+  line-length: false
+  truthy:
+    ignore: |
+      .github
+  comments:
+    ignore: |
+      .github
