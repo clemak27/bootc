@@ -1,0 +1,8 @@
+[env]
+IMAGE_NAME = "ghcr.io/clemak27/kinokite"
+IMAGE_TAG = "latest"
+
+[tasks.build-image]
+run = """
+docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+"""
