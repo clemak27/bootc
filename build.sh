@@ -47,3 +47,53 @@ systemctl enable podman.socket
 # change default shell
 
 sed -i 's@/bin/bash@/bin/zsh@g' /etc/default/useradd
+
+# signed image
+
+cat << EOF > /etc/containers/policy.json
+{
+  "default": [
+    {
+      "type": "reject"
+    }
+  ],
+  "transports": {
+    "docker-daemon": {
+      "": [
+        {
+          "type": "insecureAcceptAnything"
+        }
+      ]
+    },
+    "docker": {
+      "ghcr.io/clemak27": [
+        {
+          "type": "sigstoreSigned",
+          "keyPath": "/etc/pki/containers/clemak27.pub",
+          "signedIdentity": {
+            "type": "matchRepository"
+          }
+        }
+      ],
+      "": [
+        {
+          "type": "insecureAcceptAnything"
+        }
+      ]
+    }
+  }
+}
+EOF
+
+mkdir -p /etc/containers/registries.d
+cat << EOF > /etc/containers/registries.d/ghcr.yaml
+docker:
+  ghcr.io/clemak27:
+    use-sigstore-attachments: true
+EOF
+
+mkdir -p /etc/pki/containers
+cp /tmp/cosign.pub /etc/pki/containers/clemak27.pub
+
+restorecon -RFv /etc/pki/containers
+restorecon -RFv /etc/containers

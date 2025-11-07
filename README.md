@@ -21,3 +21,9 @@ In a fresh Fedora Kinoite installation, change the base image:
 ```sh
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/clemak27/kinokite:latest
 ```
+
+After a reboot, you can change to a signed image:
+
+```sh
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/clemak27/kinokite:latest
+```
