@@ -29,7 +29,7 @@ cd kwin-effects-forceblur
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr
-make -j$(nproc)
+make --jobs "$(nproc)"
 cpack -V -G RPM
 rpm-ostree install -y /tmp/kwin-effects-forceblur/build/kwin-better-blur.rpm
 rm -rf /tmp/kwin-effects-forceblur
