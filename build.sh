@@ -29,6 +29,7 @@ rpm-ostree install \
   gcc-c++ \
   kontact \
   ksshaskpass \
+  openrgb-udev-rules \
   podman-compose \
   podman-docker \
   steam-devices \
@@ -42,19 +43,6 @@ mkdir -p /etc/containers
 touch /etc/containers/nodocker
 
 systemctl enable podman.socket
-
-# openrgb udev rules
-
-curl -LO "https://openrgb.org/releases/release_0.9/60-openrgb.rules"
-mv 60-openrgb.rules /etc/udev/rules.d/
-restorecon /etc/udev/rules.d/60-openrgb.rules
-
-# steam udev rules
-
-curl -fLo /etc/udev/rules.d/60-steam-input.rules https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-input.rules
-restorecon /etc/udev/rules.d/60-steam-input.rules
-curl -fLo /etc/udev/rules.d/60-steam-vr.rules https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-vr.rules
-restorecon /etc/udev/rules.d/60-steam-vr.rules
 
 # change default shell
 
