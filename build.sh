@@ -19,7 +19,10 @@ rpm-ostree install \
 
 # packages
 
-rpm-ostree uninstall firefox firefox-langpacks
+rpm-ostree uninstall \
+  firefox \
+  firefox-langpacks \
+  toolbox
 
 rpm-ostree install \
   distrobox \
