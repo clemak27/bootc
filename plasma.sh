@@ -31,7 +31,7 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr
 make --jobs "$(nproc)"
 cpack -V -G RPM
-rpm-ostree install -y /tmp/kwin-effects-forceblur/build/kwin-better-blur.rpm
+dnf install -y /tmp/kwin-effects-forceblur/build/kwin-better-blur.rpm
 rm -rf /tmp/kwin-effects-forceblur
 
 dnf -y remove wayland-devel libdrm-devel kf6-kwindowsystem-devel plasma-workspace-devel libplasma-devel qt6-qtbase-private-devel qt6-qtbase-devel kwin-devel kwin-devel kf6-knotifications-devel kf6-kio-devel kf6-kcrash-devel kf6-ki18n-devel kf6-kguiaddons-devel libepoxy-devel kf6-kglobalaccel-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel kf6-kdeclarative-devel kdecoration-devel wayland-devel libdrm-devel

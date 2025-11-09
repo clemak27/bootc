@@ -11,4 +11,5 @@ RUN mkdir -p /var/lib/alternatives
 
 RUN /tmp/build.sh && \
   /tmp/plasma.sh && \
+  dnf clean all && \
   ostree container commit

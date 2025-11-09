@@ -13,18 +13,18 @@ sudo sed -i 's/enabled=1/enabled=0/' \
 
 RELEASE=$(rpm -E %fedora)
 
-rpm-ostree install \
+dnf -y install \
   "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$RELEASE.noarch.rpm" \
   "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$RELEASE.noarch.rpm"
 
 # packages
 
-rpm-ostree uninstall \
+dnf -y remove \
   firefox \
   firefox-langpacks \
   toolbox
 
-rpm-ostree install \
+dnf -y install \
   distrobox \
   gcc-c++ \
   kontact \
