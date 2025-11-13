@@ -1,0 +1,4 @@
+---
+docker:
+  ghcr.io/clemak27:
+    use-sigstore-attachments: true

@@ -8,8 +8,8 @@ on:
     branches: ["main"]
     paths:
       - Containerfile
-      - build.sh
-      - plasma.sh
+      - build/**
+      - system/**
 
 env:
   DEFAULT_TAG: "latest"
