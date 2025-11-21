@@ -1,7 +1,7 @@
 [tools]
 cosign = "3.0.2"
 "pipx:yamllint" = "1.37.1"
-actionlint = "1.7.8"
+actionlint = "1.7.9"
 shellcheck = "0.11.0"
 
 [env]
