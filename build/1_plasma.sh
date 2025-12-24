@@ -51,7 +51,7 @@ mv kara-$kara_version "/usr/share/plasma/plasmoids/org.dhruv8sh.kara"
 
 # krohnkite
 
-# renovate: datasource=github-tags depName=anametologin/krohnkite versioning=loose
+# renovate: datasource=forgejo-tags depName=anametologin/Krohnkite versioning=loose registryUrl=https://codeberg.org
 krohnkite_version=0.9.9.2
 
 cd /tmp
