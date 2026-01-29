@@ -16,6 +16,6 @@ RUN --mount=type=bind,from=ctx,src=/,dst=/ctx \
   --mount=type=tmpfs,target=/tmp \
   /ctx/0_base.sh && \
   /ctx/1_plasma.sh && \
-  /ctx/9_cleanup.sh && \
+  /ctx/99_cleanup.sh && \
   ostree container commit && \
   bootc container lint
