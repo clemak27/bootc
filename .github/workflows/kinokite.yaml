@@ -13,7 +13,7 @@ on:
 
 env:
   DEFAULT_TAG: "latest"
-  IMAGE_NAME: ${{ github.event.repository.name }}
+  IMAGE_NAME: kinokite
   IMAGE_DESC: "Customized image of Fedora Kinoite"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
   REGISTRY: ghcr.io
