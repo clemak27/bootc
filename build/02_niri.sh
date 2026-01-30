@@ -80,12 +80,15 @@ systemctl enable brew-setup.service
 install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/*
 sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
 
-# user for greeter
+# greeter service user
 tee /usr/lib/sysusers.d/greeter.conf << 'EOF'
 g greeter 767
 u greeter 767 "Greetd greeter"
 EOF
 
-sed -i 's;^NAME=.*;NAME=\"dank fedora\";g' /usr/lib/os-release
-sed -i 's;^PRETTY_NAME=.*;NAME=\"dank fedora 43\";g' /usr/lib/os-release
-sed -i 's;^NAME=.*;NAME=\"dank fedora\";g' /usr/lib/os-release
+tee system/usr/lib/systemd/user-preset/02-gcr-ssh.preset << 'EOF'
+enable gcr-ssh-agent.socket
+EOF
+
+dnf -y copr enable avengemedia/dms
+dnf -y copr enable scottames/ghostty
