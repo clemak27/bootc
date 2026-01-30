@@ -87,7 +87,7 @@ g greeter 767
 u greeter 767 "Greetd greeter"
 EOF
 
-tee system/usr/lib/systemd/user-preset/02-gcr-ssh.preset << 'EOF'
+tee /usr/lib/systemd/user-preset/02-gcr-ssh.preset << 'EOF'
 enable gcr-ssh-agent.socket
 EOF
 
