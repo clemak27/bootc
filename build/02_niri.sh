@@ -61,6 +61,7 @@ dnf install -y \
   default-fonts-core-emoji \
   google-noto-color-emoji-fonts \
   google-noto-emoji-fonts \
+  google-noto-sans-fonts \
   glibc-all-langpacks \
   default-fonts
 
