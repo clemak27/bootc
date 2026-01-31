@@ -44,8 +44,6 @@ dnf -y install \
   xdg-user-dirs \
   xwayland-satellite
 
-# fcitx5-mozc \
-
 dnf -y remove \
   alacritty
 
@@ -71,10 +69,6 @@ systemctl enable --global gnome-keyring-daemon.socket
 systemctl enable greetd
 systemctl enable firewalld
 systemctl enable brew-setup.service
-
-# systemctl enable --global fcitx5.service
-# systemctl enable --global udiskie.service
-# systemctl preset --global udiskie
 
 # improve fingerprint auth
 install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/*
