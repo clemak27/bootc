@@ -3,7 +3,7 @@ COPY /system /sys_files
 COPY /build /
 COPY cosign.pub /cosign.pub
 
-FROM quay.io/fedora/fedora-bootc:43
+FROM quay.io/fedora/fedora-bootc:44
 
 ARG IMAGE_NAME="dankfedora"
 ARG IMAGE_VENDOR="clemak27"
