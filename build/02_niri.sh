@@ -8,7 +8,6 @@ dnf -y copr enable scottames/ghostty
 dnf -y install \
   brightnessctl \
   cava \
-  chezmoi \
   ddcutil \
   dgop \
   dms \
