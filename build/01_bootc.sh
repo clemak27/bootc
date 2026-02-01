@@ -53,6 +53,7 @@ dnf -y install \
   fwupd \
   gcc-c++ \
   git-core \
+  git-credential-libsecret \
   gum \
   gvfs-archive \
   gvfs-mtp \
