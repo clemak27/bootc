@@ -11,6 +11,11 @@ Dotfiles and setup for user-specific changes are in my
 
 It currently builds 3 Images:
 
+### `dankfedora`
+
+A `bootc` image with [DMS](https://github.com/AvengeMedia/DankMaterialShell)
+and [niri](https://github.com/YaLTeR/niri).
+
 ### `kinokite`
 
 Based on Fedora Kinoite.
@@ -23,11 +28,6 @@ hence the name of the image.
 ### `kinokite-deck`
 
 This is similar to `kinokite`, but based on `bazzite-deck`.
-
-### `dankfedora`
-
-A `bootc` image with [DMS](https://github.com/AvengeMedia/DankMaterialShell)
-and [niri](https://github.com/YaLTeR/niri), to play around with it.
 
 ## Usage
 
