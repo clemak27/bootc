@@ -22,7 +22,7 @@ make install
 # kwin-effects-glass
 
 # renovate: datasource=github-tags depName=4v3ngR/kwin-effects-glass versioning=loose
-kwin_effects_glass_version=1.6.4
+kwin_effects_glass_version=6.6.0
 cd /tmp
 dnf -y install kf6-kglobalaccel kf6-kdeclarative libplasma kf6-kio qt6-qtbase kf6-kguiaddons kf6-ki18n rpm-build
 dnf -y install wayland-devel libdrm-devel kf6-kwindowsystem-devel plasma-workspace-devel libplasma-devel qt6-qtbase-private-devel qt6-qtbase-devel kwin-devel kwin-devel kf6-knotifications-devel kf6-kio-devel kf6-kcrash-devel kf6-ki18n-devel kf6-kguiaddons-devel libepoxy-devel kf6-kglobalaccel-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel kf6-kdeclarative-devel kdecoration-devel wayland-devel libdrm-devel
