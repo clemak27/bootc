@@ -60,6 +60,15 @@ unzip /tmp/krohnkite.kwinscript -d /tmp/krohnkite
 mkdir -p "/usr/share/kwin/scripts/krohnkite"
 mv /tmp/krohnkite/* "/usr/share/kwin/scripts/krohnkite"
 
+# renovate: datasource=github-tags depName=peterfajdiga/karousel versioning=loose
+karousel_version=0.15
+
+cd /tmp
+curl -fL -o /tmp/karousel.tar.gz https://github.com/peterfajdiga/karousel/releases/download/v$karousel_version/karousel_0_15.tar.gz
+tar xzf /tmp/karousel.tar.gz
+mkdir -p "/usr/share/kwin/scripts/karousel"
+mv /tmp/karousel/* "/usr/share/kwin/scripts/karousel"
+
 # plasma-panel-colorizer
 
 # renovate: datasource=github-tags depName=luisbocanegra/plasma-panel-colorizer versioning=loose
