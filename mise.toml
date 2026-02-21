@@ -5,7 +5,7 @@ actionlint = "1.7.11"
 shellcheck = "0.11.0"
 
 [env]
-IMAGE_NAME = "ghcr.io/clemak27/kinokite"
+REGISTRY = "ghcr.io/clemak27"
 IMAGE_TAG = "latest"
 
 [tasks.lint]
@@ -17,16 +17,12 @@ shellcheck plasma.sh
 """
 
 [tasks.build-image]
+alias = "build-image-dankfedora"
 run = """
-docker build -t ${IMAGE_NAME}:${IMAGE_TAG} . -f ./Containerfile.kinokite
+docker build -t ${REGISTRY}/dankfedora:${IMAGE_TAG} . -f ./Containerfile.dankfedora
 """
 
 [tasks.build-image-deck]
 run = """
-docker build -t ${IMAGE_NAME}-deck:${IMAGE_TAG} . -f ./Containerfile.deck
-"""
-
-[tasks.build-image-dank]
-run = """
-docker build -t ghcr.io/clemak27/dankfedora:${IMAGE_TAG} . -f ./Containerfile.dank
+docker build -t ${REGISTRY}/kinokite-deck:${IMAGE_TAG} . -f ./Containerfile.deck
 """
