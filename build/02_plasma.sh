@@ -49,17 +49,6 @@ tar xzf kara.tar.gz
 mkdir -p "/usr/share/plasma/plasmoids"
 mv kara-$kara_version "/usr/share/plasma/plasmoids/org.dhruv8sh.kara"
 
-# krohnkite
-
-# renovate: datasource=forgejo-tags depName=anametologin/Krohnkite versioning=loose registryUrl=https://codeberg.org
-krohnkite_version=0.9.9.2
-
-cd /tmp
-curl -fL -o /tmp/krohnkite.kwinscript https://github.com/anametologin/krohnkite/releases/download/$krohnkite_version/krohnkite.kwinscript
-unzip /tmp/krohnkite.kwinscript -d /tmp/krohnkite
-mkdir -p "/usr/share/kwin/scripts/krohnkite"
-mv /tmp/krohnkite/* "/usr/share/kwin/scripts/krohnkite"
-
 # renovate: datasource=github-tags depName=peterfajdiga/karousel versioning=loose
 karousel_version=0.15
 
