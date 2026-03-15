@@ -50,7 +50,7 @@ mkdir -p "/usr/share/plasma/plasmoids"
 mv kara-$kara_version "/usr/share/plasma/plasmoids/org.dhruv8sh.kara"
 
 # renovate: datasource=github-tags depName=peterfajdiga/karousel versioning=loose
-karousel_version=0.15
+karousel_version=0.16
 
 cd /tmp
 curl -fL -o /tmp/karousel.tar.gz https://github.com/peterfajdiga/karousel/releases/download/v$karousel_version/karousel_0_15.tar.gz
