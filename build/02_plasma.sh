@@ -41,7 +41,7 @@ dnf -y remove wayland-devel libdrm-devel kf6-kwindowsystem-devel plasma-workspac
 # kara
 
 # renovate: datasource=github-tags depName=dhruv8sh/kara versioning=loose
-kara_version=0.8.0
+kara_version=1.0.0
 
 cd /tmp
 curl -fL -o /tmp/kara.tar.gz https://github.com/dhruv8sh/kara/archive/refs/tags/v$kara_version.tar.gz
