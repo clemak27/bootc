@@ -38,17 +38,6 @@ rm -rf /tmp/kwin-effects-glass
 
 dnf -y remove wayland-devel libdrm-devel kf6-kwindowsystem-devel plasma-workspace-devel libplasma-devel qt6-qtbase-private-devel qt6-qtbase-devel kwin-devel kwin-devel kf6-knotifications-devel kf6-kio-devel kf6-kcrash-devel kf6-ki18n-devel kf6-kguiaddons-devel libepoxy-devel kf6-kglobalaccel-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel kf6-kdeclarative-devel kdecoration-devel wayland-devel libdrm-devel
 
-# kara
-
-# renovate: datasource=github-tags depName=dhruv8sh/kara versioning=loose
-kara_version=0.8.0
-
-cd /tmp
-curl -fL -o /tmp/kara.tar.gz https://github.com/dhruv8sh/kara/archive/refs/tags/v$kara_version.tar.gz
-tar xzf kara.tar.gz
-mkdir -p "/usr/share/plasma/plasmoids"
-mv kara-$kara_version "/usr/share/plasma/plasmoids/org.dhruv8sh.kara"
-
 # renovate: datasource=github-tags depName=peterfajdiga/karousel versioning=loose
 karousel_version=0.16
 
