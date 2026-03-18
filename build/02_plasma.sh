@@ -42,7 +42,7 @@ dnf -y remove wayland-devel libdrm-devel kf6-kwindowsystem-devel plasma-workspac
 karousel_version=0.16
 
 cd /tmp
-curl -fL -o /tmp/karousel.tar.gz https://github.com/peterfajdiga/karousel/releases/download/v$karousel_version/karousel_0_15.tar.gz
+curl -fL -o /tmp/karousel.tar.gz https://github.com/peterfajdiga/karousel/releases/download/v$karousel_version/karousel_"${karousel_version/"."/"_"}".tar.gz
 tar xzf /tmp/karousel.tar.gz
 mkdir -p "/usr/share/kwin/scripts/karousel"
 mv /tmp/karousel/* "/usr/share/kwin/scripts/karousel"
