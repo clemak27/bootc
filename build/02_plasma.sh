@@ -62,7 +62,7 @@ mv /tmp/pc/* "/usr/share/plasma/plasmoids/luisbocanegra.panel.colorizer"
 # plasma-panel-spacer-extended
 
 # renovate: datasource=github-tags depName=luisbocanegra/plasma-panel-spacer-extended versioning=loose
-panelspacer_extended_version=1.14.0
+panelspacer_extended_version=1.15.0
 panelspacer_extended_plasmoid=plasmoid-spacer-extended-v$panelspacer_extended_version.plasmoid
 
 cd /tmp
