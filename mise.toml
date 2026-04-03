@@ -23,3 +23,50 @@ docker build -t ${REGISTRY}/dankfedora:${IMAGE_TAG} . -f ./Containerfile.dankfed
 run = """
 docker build -t ${REGISTRY}/dankydeck:${IMAGE_TAG} . -f ./Containerfile.dankydeck
 """
+
+[tasks."run-vm:dankfedora"]
+depends = "build-image:dankfedora"
+run = """
+rm -rf ./output
+mkdir -p ./output
+podman run \
+    --rm \
+    -it \
+    --privileged \
+    --pull=newer \
+    --security-opt label=type:unconfined_t \
+    -v ./vm.toml:/config.toml:ro \
+    -v ./output:/output \
+    -v ~/.local/share/containers/storage:/var/lib/containers/storage \
+    quay.io/centos-bootc/bootc-image-builder:latest \
+    --in-vm \
+    --type qcow2 \
+    --use-librepo=True \
+    --rootfs btrfs \
+    ${REGISTRY}/dankfedora:${IMAGE_TAG}
+qemu-kvm -cpu host -m 8G -device virtio-vga-gl -display gtk,gl=on ./output/qcow2/disk.qcow2
+"""
+
+[tasks."run-vm:dankydeck"]
+run = """
+image=${REGISTRY}/dankydeck:${IMAGE_TAG}
+sudo podman build -t $image . -f ./Containerfile.dankydeck
+rm -rf ./output
+mkdir -p ./output
+sudo podman run \
+    --rm \
+    -it \
+    --privileged \
+    --pull=newer \
+    --security-opt label=type:unconfined_t \
+    -v ./vm.toml:/config.toml:ro \
+    -v ./output:/output \
+    -v /var/lib/containers/storage:/var/lib/containers/storage \
+    quay.io/centos-bootc/bootc-image-builder:latest \
+    --type qcow2 \
+    --use-librepo=True \
+    --rootfs btrfs \
+    $image
+sudo chown ${USER}:users -R ./output
+qemu-kvm -cpu host -m 8G -device virtio-vga-gl -display gtk,gl=on ./output/qcow2/disk.qcow2
+"""
