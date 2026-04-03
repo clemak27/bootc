@@ -25,9 +25,9 @@ dnf -y install \
   NetworkManager-libnm \
   NetworkManager-openconnect \
   NetworkManager-openvpn \
-  NetworkManager-strongswan \
   NetworkManager-ssh \
   NetworkManager-ssh-selinux \
+  NetworkManager-strongswan \
   NetworkManager-vpnc \
   NetworkManager-wifi \
   NetworkManager-wwan \
@@ -71,12 +71,14 @@ dnf -y install \
   libimobiledevice \
   libimobiledevice-utils \
   libratbag-ratbagd \
+  libvirt \
   man-db \
   man-pages \
   mobile-broadband-provider-info \
   mt7xxx-firmware \
   nxpwireless-firmware \
   openconnect \
+  osbuild-selinux \
   pam_yubico \
   pcsc-lite \
   plymouth \
@@ -86,6 +88,7 @@ dnf -y install \
   powerstat \
   printer-driver-brlaser \
   ptouch-driver \
+  qemu \
   realtek-firmware \
   switcheroo-control \
   system-config-printer-libs \
