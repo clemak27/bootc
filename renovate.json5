@@ -55,6 +55,18 @@
       "extends": [
         ":semanticCommitScopeDisabled"
       ]
+    },
+    {
+      "matchFileNames": [
+        "build/00_base.sh"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "semanticCommitScope": "brew",
+      "semanticCommitType": "chore",
+      "automerge": true
     }
   ]
 }

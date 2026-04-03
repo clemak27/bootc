@@ -22,6 +22,7 @@ dnf -y install \
 
 # prep brew tgz
 
+# renovate: datasource=github-tags depName=Homebrew/brew versioning=loose
 brew_version="5.0.0"
 curl -fL -o /usr/share/homebrew.tar.gz https://github.com/Homebrew/brew/archive/refs/tags/$brew_version.tar.gz
 
