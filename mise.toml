@@ -12,17 +12,14 @@ IMAGE_TAG = "latest"
 run = """
 yamllint .
 actionlint
-shellcheck build.sh
-shellcheck plasma.sh
 """
 
-[tasks.build-image]
-alias = "build-image-dankfedora"
+[tasks."build-image:dankfedora"]
 run = """
 docker build -t ${REGISTRY}/dankfedora:${IMAGE_TAG} . -f ./Containerfile.dankfedora
 """
 
-[tasks.build-image-deck]
+[tasks."build-image:dankydeck"]
 run = """
 docker build -t ${REGISTRY}/dankydeck:${IMAGE_TAG} . -f ./Containerfile.dankydeck
 """
