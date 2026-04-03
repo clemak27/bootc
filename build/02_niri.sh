@@ -44,6 +44,8 @@ dnf -y install \
   xdg-user-dirs \
   xwayland-satellite
 
+rm -rf /usr/share/doc/niri
+
 dnf -y remove \
   alacritty
 
