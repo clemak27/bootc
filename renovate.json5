@@ -4,6 +4,7 @@
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "forkProcessing": "disabled",
   "commitMessageAction": "update",
+  "pinDigests": true,
   "semanticCommits": "enabled",
   "regexManagers": [
     {
