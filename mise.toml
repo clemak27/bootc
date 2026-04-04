@@ -14,17 +14,14 @@ yamllint .
 actionlint
 """
 
-[tasks."build-image:dankfedora"]
+## dankfedora
+
+[tasks."dankfedora:build-image"]
 run = """
 docker build -t ${REGISTRY}/dankfedora:${IMAGE_TAG} . -f ./Containerfile.dankfedora
 """
 
-[tasks."build-image:dankydeck"]
-run = """
-docker build -t ${REGISTRY}/dankydeck:${IMAGE_TAG} . -f ./Containerfile.dankydeck
-"""
-
-[tasks."run-vm:dankfedora"]
+[tasks."dankfedora:run-vm"]
 depends = "build-image:dankfedora"
 run = """
 rm -rf ./output
@@ -47,7 +44,38 @@ podman run \
 qemu-kvm -cpu host -m 8G -device virtio-vga-gl -display gtk,gl=on ./output/qcow2/disk.qcow2
 """
 
-[tasks."run-vm:dankydeck"]
+[tasks."dankfedora:build-iso"]
+run = """
+image=${REGISTRY}/dankfedora:${IMAGE_TAG}
+sudo podman build -t $image . -f ./Containerfile.dankfedora
+rm -rf ./output
+mkdir -p ./output
+sudo podman run \
+    --rm \
+    -it \
+    --privileged \
+    --pull=newer \
+    --security-opt label=type:unconfined_t \
+    -v ./iso.toml:/config.toml:ro \
+    -v ./output:/output \
+    -v /var/lib/containers/storage:/var/lib/containers/storage \
+    quay.io/centos-bootc/bootc-image-builder:latest \
+    build \
+    --type anaconda-iso \
+    --use-librepo=True \
+    --rootfs btrfs \
+    $image
+sudo chown ${USER}:users -R ./output
+"""
+
+## dankydeck
+
+[tasks."dankydeck:build-image"]
+run = """
+docker build -t ${REGISTRY}/dankydeck:${IMAGE_TAG} . -f ./Containerfile.dankydeck
+"""
+
+[tasks."dankydeck:run-vm"]
 run = """
 image=${REGISTRY}/dankydeck:${IMAGE_TAG}
 sudo podman build -t $image . -f ./Containerfile.dankydeck
@@ -69,4 +97,28 @@ sudo podman run \
     $image
 sudo chown ${USER}:users -R ./output
 qemu-kvm -cpu host -m 8G -device virtio-vga-gl -display gtk,gl=on ./output/qcow2/disk.qcow2
+"""
+
+[tasks."dankydeck:build-iso"]
+run = """
+image=${REGISTRY}/dankydeck:${IMAGE_TAG}
+sudo podman build -t $image . -f ./Containerfile.dankydeck
+rm -rf ./output
+mkdir -p ./output
+sudo podman run \
+    --rm \
+    -it \
+    --privileged \
+    --pull=newer \
+    --security-opt label=type:unconfined_t \
+    -v ./iso.toml:/config.toml:ro \
+    -v ./output:/output \
+    -v /var/lib/containers/storage:/var/lib/containers/storage \
+    quay.io/centos-bootc/bootc-image-builder:latest \
+    build \
+    --type anaconda-iso \
+    --use-librepo=True \
+    --rootfs btrfs \
+    $image
+sudo chown ${USER}:users -R ./output
 """
