@@ -6,6 +6,7 @@ dnf clean all
 
 rm -rf /tmp/* || true
 rm -rf /usr/etc
+# shellcheck disable=SC2114
 rm -rf /boot && mkdir /boot
 
 # preserve cache mounts
