@@ -23,7 +23,7 @@ docker build -t ${REGISTRY}/dankfedora:${IMAGE_TAG} . -f ./Containerfile.dankfed
 """
 
 [tasks."dankfedora:run-vm"]
-depends = "build-image:dankfedora"
+depends = "dankfedora:build-image"
 run = """
 rm -rf ./output
 mkdir -p ./output
