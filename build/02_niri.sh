@@ -50,11 +50,12 @@ dnf -y remove \
   alacritty
 
 dnf install -y --setopt=install_weak_deps=False \
-  kf6-kirigami \
-  qt6ct \
-  plasma-breeze \
   breeze-cursor-theme \
-  kf6-qqc2-desktop-style
+  kf6-kimageformats \
+  kf6-kirigami \
+  kf6-qqc2-desktop-style \
+  plasma-breeze \
+  qt6ct
 
 dnf install -y \
   default-fonts-core-emoji \
