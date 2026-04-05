@@ -8,6 +8,8 @@ yamllint = "1.38.0"
 REGISTRY = "ghcr.io/clemak27"
 IMAGE_TAG = "latest"
 
+## general tasks
+
 [tasks.lint]
 run = """
 actionlint
@@ -15,17 +17,34 @@ shellcheck ./build/*.sh
 yamllint .
 """
 
-## dankfedora
-
-[tasks."dankfedora:build-image"]
-run = """
-docker build -t ${REGISTRY}/dankfedora:${IMAGE_TAG} . -f ./Containerfile.dankfedora
-"""
-
-[tasks."dankfedora:run-vm"]
-depends = "dankfedora:build-image"
+[tasks.clean]
 run = """
 rm -rf ./output
+"""
+
+## base tasks
+
+[tasks.build-image]
+hide = true
+description = "build a bootc image"
+usage = """
+arg "<image>" help="image" {
+  choices "dankfedora" "dankydeck" "kinoite"
+}
+"""
+run = """
+docker build -t ${REGISTRY}/${usage_image}:${IMAGE_TAG} . -f ./Containerfile.${usage_image}
+"""
+
+[tasks.run-vm]
+hide = true
+description = "run a vm with a bootc image"
+usage = """
+arg "<image>" help="image" {
+  choices "dankfedora" "dankydeck" "kinoite"
+}
+"""
+run = """
 mkdir -p ./output
 podman run \
     --rm \
@@ -41,47 +60,22 @@ podman run \
     --type qcow2 \
     --use-librepo=True \
     --rootfs btrfs \
-    ${REGISTRY}/dankfedora:${IMAGE_TAG}
+    ${REGISTRY}/${usage_image}:${IMAGE_TAG}
 qemu-kvm -cpu host -m 8G -device virtio-vga-gl -display gtk,gl=on ./output/qcow2/disk.qcow2
 """
 
-[tasks."dankfedora:build-iso"]
-run = """
-image=${REGISTRY}/dankfedora:${IMAGE_TAG}
-sudo podman build -t $image . -f ./Containerfile.dankfedora
-rm -rf ./output
-mkdir -p ./output
-sudo podman run \
-    --rm \
-    -it \
-    --privileged \
-    --pull=newer \
-    --security-opt label=type:unconfined_t \
-    -v ./iso.toml:/config.toml:ro \
-    -v ./output:/output \
-    -v /var/lib/containers/storage:/var/lib/containers/storage \
-    quay.io/centos-bootc/bootc-image-builder:latest \
-    build \
-    --type anaconda-iso \
-    --use-librepo=True \
-    --rootfs btrfs \
-    $image
-sudo chown ${USER}:users -R ./output
+[tasks.run-vm-root]
+hide = true
+description = "run a vm with a bootc image"
+usage = """
+arg "<image>" help="image" {
+  choices "dankfedora" "dankydeck" "kinoite"
+}
 """
-
-## dankydeck
-
-[tasks."dankydeck:build-image"]
 run = """
-docker build -t ${REGISTRY}/dankydeck:${IMAGE_TAG} . -f ./Containerfile.dankydeck
-"""
-
-[tasks."dankydeck:run-vm"]
-run = """
-image=${REGISTRY}/dankydeck:${IMAGE_TAG}
-sudo podman build -t $image . -f ./Containerfile.dankydeck
-rm -rf ./output
+image=${REGISTRY}/${usage_image}:${IMAGE_TAG}
 mkdir -p ./output
+sudo podman build -t $image . -f ./Containerfile.${usage_image}
 sudo podman run \
     --rm \
     -it \
@@ -100,12 +94,18 @@ sudo chown ${USER}:users -R ./output
 qemu-kvm -cpu host -m 8G -device virtio-vga-gl -display gtk,gl=on ./output/qcow2/disk.qcow2
 """
 
-[tasks."dankydeck:build-iso"]
+[tasks.build-iso]
+hide = true
+description = "build a bootable with a bootc image"
+usage = """
+arg "<image>" help="image" {
+  choices "dankfedora" "dankydeck" "kinoite"
+}
+"""
 run = """
-image=${REGISTRY}/dankydeck:${IMAGE_TAG}
-sudo podman build -t $image . -f ./Containerfile.dankydeck
-rm -rf ./output
+image=${REGISTRY}/${usage_image}:${IMAGE_TAG}
 mkdir -p ./output
+sudo podman build -t $image . -f ./Containerfile.${usage_image}
 sudo podman run \
     --rm \
     -it \
@@ -123,3 +123,26 @@ sudo podman run \
     $image
 sudo chown ${USER}:users -R ./output
 """
+
+## dankfedora
+
+[tasks."dankfedora:build-image"]
+run = "mise run build-image dankfedora"
+
+[tasks."dankfedora:run-vm"]
+depends = "dankfedora:build-image"
+run = "mise run run-vm dankfedora"
+
+[tasks."dankfedora:build-iso"]
+run = "mise run build-iso dankfedora"
+
+## dankydeck
+
+[tasks."dankydeck:build-image"]
+run = "mise run build-image dankydeck"
+
+[tasks."dankydeck:run-vm"]
+run = "mise run run-vm-root dankydeck"
+
+[tasks."dankydeck:build-iso"]
+run = "mise run build-iso dankydeck"
