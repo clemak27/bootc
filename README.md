@@ -11,19 +11,10 @@ Dotfiles and setup for user-specific changes are in my
 
 It currently builds 2 Images:
 
-### `dankfedora`
-
-A `bootc` image with [DMS](https://github.com/AvengeMedia/DankMaterialShell)
-and [niri](https://github.com/YaLTeR/niri).
-
-### `dankydeck`
-
-An image based on `bazzite-deck`.
-
-It installs some basic packages and sets up some
-Plasma extensions.
-A significant one is [karousel](https://github.com/peterfajdiga/karousel),
-which gives plasma a niri-style scrolling/tiling workflow.
+| name       | description                                                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------- |
+| dankfedora | custom Fedora image with [DMS](https://github.com/AvengeMedia/DankMaterialShell) and [niri](https://github.com/YaLTeR/niri) |
+| dankydeck  | custom bazzite image with [karousel](https://github.com/peterfajdiga/karousel) and other plugins                            |
 
 ## Usage
 
