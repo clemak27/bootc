@@ -82,3 +82,9 @@ curl -fL -o /tmp/kgc.tar.gz https://github.com/peterfajdiga/kwin4_effect_geometr
 tar xzf /tmp/kgc.tar.gz
 mkdir -p "/usr/share/kwin/effects"
 mv /tmp/kwin4_effect_geometry_change "/usr/share/kwin/effects/kwin4_effect_geometry_change"
+
+# theming
+
+dnf -y install \
+  adw-gtk3-theme \
+  papirus-icon-theme
