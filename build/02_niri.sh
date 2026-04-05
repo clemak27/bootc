@@ -6,6 +6,7 @@ dnf -y copr enable avengemedia/dms
 dnf -y copr enable scottames/ghostty
 
 dnf -y install \
+  adw-gtk3-theme \
   brightnessctl \
   cava \
   ddcutil \
@@ -30,6 +31,7 @@ dnf -y install \
   niri \
   openrgb-udev-rules \
   openssh-askpass \
+  papirus-icon-theme \
   pipewire \
   playerctl \
   quickshell \
