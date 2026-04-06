@@ -1,6 +1,6 @@
 [tools]
 actionlint = "1.7.12"
-cosign = "3.0.5"
+cosign = "3.0.6"
 shellcheck = "0.11.0"
 yamllint = "1.38.0"
 
