@@ -9,7 +9,7 @@ on:
     paths:
       - Containerfile.dankfedora
       - build/00_base.sh
-      - build/01_bootc.sh
+      - build/01_atomic.sh
       - build/02_niri.sh
       - build/99_cleanup.sh
       - system/**

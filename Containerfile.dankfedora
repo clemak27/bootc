@@ -3,7 +3,7 @@ COPY /system /sys_files
 COPY /build /
 COPY cosign.pub /cosign.pub
 
-FROM quay.io/fedora/fedora-bootc:43
+FROM quay.io/fedora-ostree-desktops/base-atomic:43
 
 ARG IMAGE_NAME="dankfedora"
 ARG IMAGE_VENDOR="clemak27"
@@ -15,7 +15,7 @@ RUN --mount=type=bind,from=ctx,src=/,dst=/ctx \
   --mount=type=cache,target=/var/log \
   --mount=type=tmpfs,target=/tmp \
   /ctx/00_base.sh && \
-  /ctx/01_bootc.sh && \
+  /ctx/01_atomic.sh && \
   /ctx/02_niri.sh && \
   /ctx/99_cleanup.sh && \
   ostree container commit && \

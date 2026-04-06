@@ -9,6 +9,7 @@ dnf -y install \
   adw-gtk3-theme \
   brightnessctl \
   cava \
+  cups-pk-helper \
   ddcutil \
   dgop \
   dms \

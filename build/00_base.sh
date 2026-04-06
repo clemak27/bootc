@@ -2,8 +2,6 @@
 
 set -ouex pipefail
 
-dnf -y install rsync
-
 # copy system files into root
 
 rsync -rvK /ctx/sys_files/ /
