@@ -73,7 +73,15 @@ systemctl enable --global gnome-keyring-daemon.socket
 
 systemctl enable greetd
 systemctl enable firewalld
+
 systemctl enable brew-setup.service
+cat << EOF > /etc/zshenv
+HOMEBREW_CELLAR=/var/home/linuxbrew/.linuxbrew/Cellar
+HOMEBREW_NO_ANALYTICS=1
+HOMEBREW_PREFIX=/var/home/linuxbrew/.linuxbrew
+HOMEBREW_REPOSITORY=/var/home/linuxbrew/.linuxbrew/Homebrew
+PATH="/var/home/linuxbrew/.linuxbrew/bin:$PATH"
+EOF
 
 # improve fingerprint auth
 install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/*
