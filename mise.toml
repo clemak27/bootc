@@ -75,7 +75,8 @@ arg "<image>" help="image" {
 run = """
 image=${REGISTRY}/${usage_image}:${IMAGE_TAG}
 mkdir -p ./output
-sudo podman build -t $image . -f ./Containerfile.${usage_image}
+podman save --format oci-archive --output image.tar $image
+sudo podman load --input image.tar
 sudo podman run \
     --rm \
     -it \
@@ -105,7 +106,8 @@ arg "<image>" help="image" {
 run = """
 image=${REGISTRY}/${usage_image}:${IMAGE_TAG}
 mkdir -p ./output
-sudo podman build -t $image . -f ./Containerfile.${usage_image}
+podman save --format oci-archive --output image.tar $image
+sudo podman load --input image.tar
 sudo podman run \
     --rm \
     -it \
@@ -134,6 +136,7 @@ depends = "dankfedora:build-image"
 run = "mise run run-vm dankfedora"
 
 [tasks."dankfedora:build-iso"]
+depends = "dankfedora:build-image"
 run = "mise run build-iso dankfedora"
 
 ## dankydeck
@@ -142,7 +145,9 @@ run = "mise run build-iso dankfedora"
 run = "mise run build-image dankydeck"
 
 [tasks."dankydeck:run-vm"]
+depends = "dankydeck:build-image"
 run = "mise run run-vm-root dankydeck"
 
 [tasks."dankydeck:build-iso"]
+depends = "dankydeck:build-image"
 run = "mise run build-iso dankydeck"
