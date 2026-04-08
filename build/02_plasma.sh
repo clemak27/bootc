@@ -83,8 +83,16 @@ tar xzf /tmp/kgc.tar.gz
 mkdir -p "/usr/share/kwin/effects"
 mv /tmp/kwin4_effect_geometry_change "/usr/share/kwin/effects/kwin4_effect_geometry_change"
 
-# theming
+# packages
+
+dnf -y copr enable scottames/ghostty
 
 dnf -y install \
   adw-gtk3-theme \
+  ghostty \
   papirus-icon-theme
+
+dnf -y remove \
+  konsole
+
+dnf -y copr disable scottames/ghostty
