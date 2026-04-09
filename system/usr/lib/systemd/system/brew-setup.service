@@ -13,7 +13,7 @@ ExecStart=/usr/bin/mkdir -p /var/home/linuxbrew
 ExecStart=/usr/bin/tar -xvf /usr/share/homebrew.tar.gz -C /tmp/homebrew
 
 ExecStart=mkdir -p /var/home/linuxbrew/.linuxbrew/bin /var/home/linuxbrew/.linuxbrew/share/zsh/site-functions /var/home/linuxbrew/.linuxbrew/Cellar
-ExecStart=cp -R -n /tmp/homebrew/brew-5.0.0 /var/home/linuxbrew/.linuxbrew/Homebrew
+ExecStart=cp -R -n /tmp/homebrew/brew-5.1.5 /var/home/linuxbrew/.linuxbrew/Homebrew
 ExecStart=ln -sf /var/home/linuxbrew/.linuxbrew/Homebrew/bin/brew /var/home/linuxbrew/.linuxbrew/bin/brew
 ExecStart=ln -sf /var/home/linuxbrew/.linuxbrew/Homebrew/share/zsh/site-functions/_brew /var/home/linuxbrew/.linuxbrew/share/zsh/site-functions/_brew
 ExecStart=rm -rf /tmp/homebrew /tmp/homebrew

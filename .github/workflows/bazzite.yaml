@@ -8,6 +8,7 @@ on:
     branches: ["main"]
     paths:
       - Containerfile.bazzite
+      - build/00_base.sh
       - build/01_bazzite.sh
       - build/02_plasma.sh
       - build/99_cleanup.sh

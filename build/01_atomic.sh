@@ -2,6 +2,27 @@
 
 set -ouex pipefail
 
+# copy system files into root
+
+rsync -rvK /ctx/sys_files/ /
+
+# disable unused codec repo
+
+sudo sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/fedora-cisco-openh264.repo
+
+# add nonfree repos
+
+RELEASE=$(rpm -E %fedora)
+
+dnf -y install \
+  "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$RELEASE.noarch.rpm" \
+  "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$RELEASE.noarch.rpm"
+
+# setup flathub
+
+mkdir -p /etc/flatpak/remotes.d/
+curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
+
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 

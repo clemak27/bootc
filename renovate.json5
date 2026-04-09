@@ -57,8 +57,8 @@
       ]
     },
     {
-      "matchFileNames": [
-        "build/00_base.sh"
+      "matchDepNames": [
+        "Homebrew/brew"
       ],
       "matchUpdateTypes": [
         "minor",

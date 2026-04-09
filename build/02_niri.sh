@@ -75,6 +75,12 @@ systemctl enable --global gnome-keyring-daemon.socket
 systemctl enable greetd
 systemctl enable firewalld
 
+# brew
+
+# renovate: datasource=github-tags depName=Homebrew/brew versioning=loose
+brew_version="5.1.5"
+curl -fL -o /usr/share/homebrew.tar.gz https://github.com/Homebrew/brew/archive/refs/tags/$brew_version.tar.gz
+
 systemctl enable brew-setup.service
 cat << EOF > /etc/zshenv
 HOMEBREW_CELLAR=/var/home/linuxbrew/.linuxbrew/Cellar
