@@ -15,8 +15,7 @@ dnf -y install \
   ghostty \
   klassy \
   kwin-effects-glass \
-  papirus-icon-theme \
-  qml-module-org-kde-notifications
+  papirus-icon-theme
 
 dnf -y remove \
   konsole
