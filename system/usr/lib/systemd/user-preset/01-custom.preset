@@ -1,0 +1,3 @@
+enable dotfiles-init.service
+enable podman.socket
+enable syncthing.service
