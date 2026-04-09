@@ -8,7 +8,7 @@ dnf -y install git cmake extra-cmake-modules gettext
 
 dnf -y copr enable scottames/ghostty
 dnf -y copr enable ama1470/kwin-effects-glass
-dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:paulmcauley/Fedora_43/home:paulmcauley.repo
+dnf config-manager addrepo --from-repofile="https://download.opensuse.org/repositories/home:paulmcauley/Fedora_$(rpm -E %fedora)/home:paulmcauley.repo"
 
 dnf -y install \
   adw-gtk3-theme \
