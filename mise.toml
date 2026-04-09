@@ -29,7 +29,7 @@ hide = true
 description = "build a bootc image"
 usage = """
 arg "<image>" help="image" {
-  choices "dankfedora" "dankydeck" "kinoite"
+  choices "dankfedora" "bazzite" "kinoite"
 }
 """
 run = """
@@ -41,7 +41,7 @@ hide = true
 description = "run a vm with a bootc image"
 usage = """
 arg "<image>" help="image" {
-  choices "dankfedora" "dankydeck" "kinoite"
+  choices "dankfedora" "bazzite" "kinoite"
 }
 """
 run = """
@@ -69,7 +69,7 @@ hide = true
 description = "run a vm with a bootc image"
 usage = """
 arg "<image>" help="image" {
-  choices "dankfedora" "dankydeck" "kinoite"
+  choices "dankfedora" "bazzite" "kinoite"
 }
 """
 run = """
@@ -100,7 +100,7 @@ hide = true
 description = "build a bootable with a bootc image"
 usage = """
 arg "<image>" help="image" {
-  choices "dankfedora" "dankydeck" "kinoite"
+  choices "dankfedora" "bazzite" "kinoite"
 }
 """
 run = """
@@ -139,18 +139,18 @@ run = "mise run run-vm dankfedora"
 depends = "dankfedora:build-image"
 run = "mise run build-iso dankfedora"
 
-## dankydeck
+## bazzite
 
-[tasks."dankydeck:build-image"]
-run = "mise run build-image dankydeck"
+[tasks."bazzite:build-image"]
+run = "mise run build-image bazzite"
 
-[tasks."dankydeck:run-vm"]
-depends = "dankydeck:build-image"
-run = "mise run run-vm-root dankydeck"
+[tasks."bazzite:run-vm"]
+depends = "bazzite:build-image"
+run = "mise run run-vm-root bazzite"
 
-[tasks."dankydeck:build-iso"]
-depends = "dankydeck:build-image"
-run = "mise run build-iso dankydeck"
+[tasks."bazzite:build-iso"]
+depends = "bazzite:build-image"
+run = "mise run build-iso bazzite"
 
 ## kinoite
 

@@ -14,7 +14,7 @@ It currently builds 2 Images:
 | name       | description                                                                                                                 |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
 | dankfedora | custom Fedora image with [DMS](https://github.com/AvengeMedia/DankMaterialShell) and [niri](https://github.com/YaLTeR/niri) |
-| dankydeck  | custom bazzite image with [karousel](https://github.com/peterfajdiga/karousel) and other plugins                            |
+| bazzite    | custom bazzite image with [karousel](https://github.com/peterfajdiga/karousel) and other plugins                            |
 
 ## Usage
 
