@@ -6,6 +6,8 @@ set -ouex pipefail
 
 rsync -rvK /ctx/sys_files/ /
 
+systemctl enable --global dotfiles-init.service
+
 # disable unused codec repo
 
 sudo sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/fedora-cisco-openh264.repo

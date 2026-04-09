@@ -6,6 +6,8 @@ set -ouex pipefail
 
 rsync -rvK /ctx/sys_files/ /
 
+systemctl enable --global dotfiles-init.service
+
 # add nonfree repos
 
 RELEASE=$(rpm -E %fedora)

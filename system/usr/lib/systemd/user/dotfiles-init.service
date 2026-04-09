@@ -1,0 +1,14 @@
+[Unit]
+Description=Creates dotfile dir
+ConditionPathExists=!%h/Projects/linux_setup
+ConditionUser=clemens
+
+[Service]
+Type=oneshot
+ExecStart=mkdir -p %h/Projects
+ExecStart=/bin/bash -c "cd %h/Projects && git clone https://github.com/clemak27/linux_setup"
+ExecStart=mkdir -p %h/.config/chezmoi
+ExecStart=/bin/bash -c "echo \"sourceDir: %h/Projects/linux_setup\" > \"%h/.config/chezmoi/chezmoi.yaml\""
+
+[Install]
+WantedBy=graphical-session-pre.target
