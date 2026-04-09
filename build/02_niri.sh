@@ -104,5 +104,8 @@ tee /usr/lib/systemd/user-preset/02-gcr-ssh.preset << 'EOF'
 enable gcr-ssh-agent.socket
 EOF
 
+systemctl enable --global gcr-ssh-agent.socket
+systemctl enable --global gcr-ssh-agent.service
+
 dnf -y copr disable avengemedia/dms
 dnf -y copr disable scottames/ghostty
