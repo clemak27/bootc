@@ -151,3 +151,16 @@ run = "mise run run-vm-root dankydeck"
 [tasks."dankydeck:build-iso"]
 depends = "dankydeck:build-image"
 run = "mise run build-iso dankydeck"
+
+## kinoite
+
+[tasks."kinoite:build-image"]
+run = "mise run build-image kinoite"
+
+[tasks."kinoite:run-vm"]
+depends = "kinoite:build-image"
+run = "mise run run-vm-root kinoite"
+
+[tasks."kinoite:build-iso"]
+depends = "kinoite:build-image"
+run = "mise run build-iso kinoite"
