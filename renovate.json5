@@ -48,13 +48,14 @@
     {
       "matchPackageNames": [
         "quay.io/fedora/fedora-kinoite",
-        "quay.io/fedora/fedora-bootc"
+        "quay.io/fedora-ostree-desktops/base-atomic"
       ],
       "groupName": "Fedora",
       "semanticCommitType": "feat",
       "extends": [
         ":semanticCommitScopeDisabled"
-      ]
+      ],
+      "enabled": false
     },
     {
       "matchDepNames": [
