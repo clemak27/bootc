@@ -10,6 +10,7 @@ ExecStart=mkdir -p %h/Projects
 ExecStart=/bin/bash -c "cd %h/Projects && git clone https://github.com/clemak27/linux_setup"
 ExecStart=mkdir -p %h/.config/chezmoi
 ExecStart=/bin/bash -c "echo \"sourceDir: %h/Projects/linux_setup\" > \"%h/.config/chezmoi/chezmoi.yaml\""
+ExecStart=/var/home/linuxbrew/.linuxbrew/bin/brew install chezmoi
 
 [Install]
 WantedBy=graphical-session-pre.target
