@@ -1,0 +1,20 @@
+[Unit]
+Description=Create initial niri config
+ConditionUser=clemens
+ConditionPathExists=!%h/.config/niri
+After=dotfiles-init.service
+
+[Service]
+Type=oneshot
+ExecStart=mkdir -p %h/.config/niri/dms
+ExecStart=cp %h/Projects/linux_setup/dotfiles/dot_config/niri/config.kdl %h/.config/niri/config.kdl
+ExecStart=touch %h/.config/niri/dms/alttab.kdl
+ExecStart=touch %h/.config/niri/dms/binds.kdl
+ExecStart=touch %h/.config/niri/dms/colors.kdl
+ExecStart=touch %h/.config/niri/dms/cursor.kdl
+ExecStart=touch %h/.config/niri/dms/layout.kdl
+ExecStart=touch %h/.config/niri/dms/outputs.kdl
+ExecStart=touch %h/.config/niri/dms/wpblur.kdl
+
+[Install]
+WantedBy=graphical-session-pre.target

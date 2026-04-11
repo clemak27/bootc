@@ -1,7 +1,8 @@
 [Unit]
-Description=Creates dotfile dir
-ConditionPathExists=!%h/Projects/linux_setup
+Description=Create dotfile dir
 ConditionUser=clemens
+ConditionPathExists=!%h/Projects/linux_setup
+ConditionPathExists=!%h/.config/chezmoi
 
 [Service]
 Type=oneshot
