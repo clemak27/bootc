@@ -45,34 +45,6 @@ arg "<image>" help="image" {
 }
 """
 run = """
-mkdir -p ./output
-podman run \
-    --rm \
-    -it \
-    --privileged \
-    --pull=newer \
-    --security-opt label=type:unconfined_t \
-    -v ./vm.toml:/config.toml:ro \
-    -v ./output:/output \
-    -v ~/.local/share/containers/storage:/var/lib/containers/storage \
-    quay.io/centos-bootc/bootc-image-builder:latest \
-    --in-vm \
-    --type qcow2 \
-    --use-librepo=True \
-    --rootfs btrfs \
-    ${REGISTRY}/${usage_image}:${IMAGE_TAG}
-qemu-kvm -cpu host -m 8G -device virtio-vga-gl -display gtk,gl=on ./output/qcow2/disk.qcow2
-"""
-
-[tasks.run-vm-root]
-hide = true
-description = "run a vm with a bootc image"
-usage = """
-arg "<image>" help="image" {
-  choices "dankfedora" "bazzite" "kinoite"
-}
-"""
-run = """
 image=${REGISTRY}/${usage_image}:${IMAGE_TAG}
 mkdir -p ./output
 podman save --format oci-archive --output image.tar $image
@@ -146,7 +118,7 @@ run = "mise run build-image bazzite"
 
 [tasks."bazzite:run-vm"]
 depends = "bazzite:build-image"
-run = "mise run run-vm-root bazzite"
+run = "mise run run-vm bazzite"
 
 [tasks."bazzite:build-iso"]
 depends = "bazzite:build-image"
@@ -159,7 +131,7 @@ run = "mise run build-image kinoite"
 
 [tasks."kinoite:run-vm"]
 depends = "kinoite:build-image"
-run = "mise run run-vm-root kinoite"
+run = "mise run run-vm kinoite"
 
 [tasks."kinoite:build-iso"]
 depends = "kinoite:build-image"
