@@ -7,6 +7,7 @@ set -ouex pipefail
 rsync -rvK /ctx/sys_files/ /
 
 systemctl enable --global dotfiles-init.service
+systemctl enable --global flatpak-preinstall.service
 
 # disable unused codec repo
 

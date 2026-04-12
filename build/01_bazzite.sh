@@ -8,6 +8,7 @@ rsync -rvK /ctx/sys_files/usr/lib/systemd/user /usr/lib/systemd
 rsync -rvK /ctx/sys_files/usr/lib/systemd/user-preset /usr/lib/systemd
 
 systemctl enable --global dotfiles-init.service
+systemctl enable --global flatpak-preinstall.service
 
 dnf -y install podman-docker zsh
 dnf -y remove ptyxis
