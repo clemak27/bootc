@@ -1,0 +1,11 @@
+[Unit]
+Description=Install flatpaks
+After=enable-flathub.service
+ConditionPathExists=!%h/.var/app/org.mozilla.firefox
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak preinstall -y
+
+[Install]
+WantedBy=graphical-session-pre.target

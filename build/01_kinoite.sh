@@ -7,6 +7,7 @@ set -ouex pipefail
 rsync -rvK /ctx/sys_files/ /
 
 systemctl enable --global dotfiles-init.service
+systemctl enable --global flatpak-preinstall.service
 
 # add nonfree repos
 
@@ -57,6 +58,7 @@ dnf -y install \
 
 rm -f /usr/lib/systemd/system/flatpak-add-fedora-repos.service
 systemctl enable enable-flathub.service
+systemctl enable fp-preinstall.service
 
 # podman
 

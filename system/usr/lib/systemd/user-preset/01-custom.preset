@@ -1,3 +1,4 @@
 enable dotfiles-init.service
+enable flatpak-preinstall.service
 enable podman.socket
 enable syncthing.service
