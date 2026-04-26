@@ -35,7 +35,7 @@ dnf -y install \
   papirus-icon-theme \
   pipewire \
   playerctl \
-  quickshell \
+  quickshell-git \
   steam-devices \
   udiskie \
   webp-pixbuf-loader \
