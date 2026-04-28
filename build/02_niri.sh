@@ -4,6 +4,7 @@ set -ouex pipefail
 
 dnf -y copr enable avengemedia/dms
 dnf -y copr enable scottames/ghostty
+dnf -y copr enable yalter/niri
 
 dnf -y install \
   adw-gtk3-theme \
@@ -110,3 +111,4 @@ systemctl enable --global gcr-ssh-agent.service
 
 dnf -y copr disable avengemedia/dms
 dnf -y copr disable scottames/ghostty
+dnf -y copr disable yalter/niri
