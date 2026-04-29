@@ -3,7 +3,7 @@ COPY /system /sys_files
 COPY /build /
 COPY cosign.pub /cosign.pub
 
-FROM ghcr.io/ublue-os/bazzite-deck:stable
+FROM ghcr.io/ublue-os/bazzite-deck:43.20260420
 
 ARG IMAGE_NAME="bazzite"
 ARG IMAGE_VENDOR="clemak27"
