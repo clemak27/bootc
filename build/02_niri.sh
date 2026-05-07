@@ -112,3 +112,6 @@ systemctl enable --global gcr-ssh-agent.service
 dnf -y copr disable avengemedia/dms
 dnf -y copr disable scottames/ghostty
 dnf -y copr disable yalter/niri
+
+sed -i 's/^NAME=.*/NAME="dankfedora"/' /etc/os-release
+sed -i 's/^PRETTY_NAME=.*/PRETTY_NAME="dankfedora"/' /etc/os-release
