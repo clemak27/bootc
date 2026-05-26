@@ -85,3 +85,9 @@ HOMEBREW_PREFIX=/var/home/linuxbrew/.linuxbrew
 HOMEBREW_REPOSITORY=/var/home/linuxbrew/.linuxbrew/Homebrew
 PATH="/var/home/linuxbrew/.linuxbrew/bin:$PATH"
 EOF
+
+# nix
+
+systemctl enable nix.mount
+dnf -y install nix nix-daemon
+systemctl enable nix-daemon.service

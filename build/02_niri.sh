@@ -91,6 +91,12 @@ HOMEBREW_REPOSITORY=/var/home/linuxbrew/.linuxbrew/Homebrew
 PATH="/var/home/linuxbrew/.linuxbrew/bin:$PATH"
 EOF
 
+# nix
+
+systemctl enable nix.mount
+dnf -y install nix nix-daemon
+systemctl enable nix-daemon.service
+
 # improve fingerprint auth
 install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/*
 sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
