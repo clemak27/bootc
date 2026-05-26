@@ -58,7 +58,6 @@ dnf -y install \
 
 rm -f /usr/lib/systemd/system/flatpak-add-fedora-repos.service
 systemctl enable enable-flathub.service
-systemctl enable fp-preinstall.service
 
 # podman
 
