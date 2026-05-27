@@ -19,3 +19,12 @@ dnf -y remove ptyxis
 systemctl enable nix.mount
 dnf -y install nix nix-daemon
 systemctl enable nix-daemon.service
+cat << EOF > /etc/nix/nix.conf
+auto-optimise-store = true
+experimental-features = nix-command flakes
+extra-nix-path = nixpkgs=flake:nixpkgs
+extra-platforms = aarch64-linux
+extra-sandbox-paths = /usr/bin/qemu-aarch64-static
+max-jobs = auto
+ssl-cert-file = /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+EOF
