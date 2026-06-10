@@ -27,7 +27,7 @@ dnf -y copr disable scottames/ghostty
 ## plasmoids
 
 # renovate: datasource=github-tags depName=peterfajdiga/karousel versioning=loose
-karousel_version=0.16
+karousel_version=0.17
 
 cd /tmp
 curl -fL -o /tmp/karousel.tar.gz https://github.com/peterfajdiga/karousel/releases/download/v$karousel_version/karousel_"${karousel_version/"."/"_"}".tar.gz
