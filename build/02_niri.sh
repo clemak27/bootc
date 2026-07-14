@@ -11,6 +11,7 @@ dnf -y install \
   brightnessctl \
   cava \
   cups-pk-helper \
+  dankcalendar-git \
   ddcutil \
   dgop \
   dms \
