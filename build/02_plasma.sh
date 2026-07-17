@@ -56,7 +56,7 @@ mv /tmp/karousel/* "/usr/share/kwin/scripts/karousel"
 # plasma-panel-colorizer
 
 # renovate: datasource=github-tags depName=luisbocanegra/plasma-panel-colorizer versioning=loose
-panel_colorizer_version=7.2.0
+panel_colorizer_version=7.3.0
 panel_colorizer_plasmoid=plasmoid-panel-colorizer-v$panel_colorizer_version.plasmoid
 
 cd /tmp
