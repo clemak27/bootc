@@ -69,6 +69,15 @@ dnf -y install \
   vim \
   zsh
 
+# slop
+
+dnf -y install \
+  bubblewrap \
+  rocm-hip \
+  rocm-opencl \
+  rocm-smi \
+  socat
+
 systemctl enable auditd
 systemctl enable firewalld
 
