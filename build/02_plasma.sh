@@ -7,18 +7,21 @@ dnf -y install git cmake extra-cmake-modules gettext
 ## packages
 
 dnf -y copr enable scottames/ghostty
+dnf -y copr enable infinality/kwin-effects-better-blur-dx
 dnf config-manager addrepo --from-repofile="https://download.opensuse.org/repositories/home:paulmcauley/Fedora_$(rpm -E %fedora)/home:paulmcauley.repo"
 
 dnf -y install \
   adw-gtk3-theme \
   ghostty \
   klassy \
+  kwin-effects-better-blur-dx \
   papirus-icon-theme
 
 dnf -y remove \
   konsole
 
 rm -f /etc/yum.repos.d/home:paulmcauley.repo
+dnf -y copr disable infinality/kwin-effects-better-blur-dx
 dnf -y copr disable scottames/ghostty
 
 ## plasmoids
