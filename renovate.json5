@@ -5,9 +5,10 @@
   "forkProcessing": "disabled",
   "commitMessageAction": "update",
   "semanticCommits": "enabled",
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": [
+      "customType": "regex",
+      "managerFilePatterns": [
         ".*\\.sh"
       ],
       // https://regex101.com/r/AxTOhn/1
