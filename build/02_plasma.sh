@@ -8,6 +8,7 @@ dnf -y install git cmake extra-cmake-modules gettext
 
 dnf -y copr enable scottames/ghostty
 dnf -y copr enable infinality/kwin-effects-better-blur-dx
+dnf -y copr enable fuddlesworth/PlasmaZones
 dnf config-manager addrepo --from-repofile="https://download.opensuse.org/repositories/home:paulmcauley/Fedora_$(rpm -E %fedora)/home:paulmcauley.repo"
 
 dnf -y install \
@@ -15,7 +16,8 @@ dnf -y install \
   ghostty \
   klassy \
   kwin-effects-better-blur-dx \
-  papirus-icon-theme
+  papirus-icon-theme \
+  plasmazones
 
 dnf -y remove \
   konsole
@@ -25,15 +27,6 @@ dnf -y copr disable infinality/kwin-effects-better-blur-dx
 dnf -y copr disable scottames/ghostty
 
 ## plasmoids
-
-# renovate: datasource=github-tags depName=peterfajdiga/karousel versioning=loose
-karousel_version=0.17
-
-cd /tmp
-curl -fL -o /tmp/karousel.tar.gz https://github.com/peterfajdiga/karousel/releases/download/v"$karousel_version/karousel_${karousel_version/"."/"_"}".tar.gz
-tar xzf /tmp/karousel.tar.gz
-mkdir -p "/usr/share/kwin/scripts/karousel"
-mv /tmp/karousel/* "/usr/share/kwin/scripts/karousel"
 
 # plasma-panel-colorizer
 
