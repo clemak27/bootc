@@ -1,5 +1,5 @@
 [tools]
-actionlint = "1.7.12"
+jactionlint = "1.8.2"
 cosign = "3.1.3"
 shellcheck = "0.11.0"
 yamllint = "1.38.0"
@@ -12,7 +12,7 @@ IMAGE_TAG = "latest"
 
 [tasks.lint]
 run = """
-actionlint
+jactionlint
 shellcheck ./build/*.sh
 yamllint .
 """
