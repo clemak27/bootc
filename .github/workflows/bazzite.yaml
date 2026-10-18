@@ -14,6 +14,10 @@ on:
       - build/99_cleanup.sh
       - system/**
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 env:
   DEFAULT_TAG: "latest"
   IMAGE_NAME: bazzite
@@ -28,7 +32,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-
+    timeout-minutes: 60
     steps:
       - name: prepare environment
         run: |
@@ -37,6 +41,8 @@ jobs:
 
       - name: checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+        with:
+          persist-credentials: false
 
       - name: mount btrfs for podman storage
         id: container-storage-action
