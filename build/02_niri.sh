@@ -45,6 +45,7 @@ dnf -y install \
   wl-clipboard \
   xdg-desktop-portal-gnome \
   xdg-desktop-portal-gtk \
+  xdg-native-messaging-proxy \
   xdg-terminal-exec \
   xdg-user-dirs \
   xwayland-satellite
