@@ -15,7 +15,8 @@ dnf -y install \
   ghostty \
   klassy \
   kwin-effects-better-blur-dx \
-  papirus-icon-theme
+  papirus-icon-theme \
+  xdg-native-messaging-proxy
 
 dnf -y remove \
   konsole
