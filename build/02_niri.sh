@@ -113,12 +113,6 @@ EOF
 install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/*
 sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
 
-# greeter service user
-tee /usr/lib/sysusers.d/greeter.conf << 'EOF'
-g greeter 767
-u greeter 767 "Greetd greeter"
-EOF
-
 tee /usr/lib/systemd/user-preset/02-gcr-ssh.preset << 'EOF'
 enable gcr-ssh-agent.socket
 EOF
