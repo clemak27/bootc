@@ -17,7 +17,6 @@ dnf -y install \
   dms \
   dms-cli \
   dms-greeter \
-  dux-files \
   dsearch \
   fpaste \
   gcr \
