@@ -11,7 +11,7 @@ systemctl enable --global flatpak-preinstall.service
 
 # disable unused codec repo
 
-sudo sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/fedora-cisco-openh264.repo
+dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
 # add nonfree repos
 
@@ -49,10 +49,8 @@ dnf -y install \
   fprintd-pam \
   gcc-c++ \
   git-credential-libsecret \
-  gvfs-archive \
   gvfs-mtp \
   gvfs-nfs \
-  iwlegacy-firmware \
   jmtpfs \
   libcamera-{v4l2,gstreamer,tools} \
   libratbag-ratbagd \
