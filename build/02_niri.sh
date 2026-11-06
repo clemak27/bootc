@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-dnf -y copr enable avengemedia/dms
+dnf -y copr enable duxlabs/dms
 dnf -y copr enable scottames/ghostty
 dnf -y copr enable yalter/niri
 
@@ -108,10 +108,6 @@ max-jobs = auto
 ssl-cert-file = /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 EOF
 
-# improve fingerprint auth
-install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/*
-sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
-
 tee /usr/lib/systemd/user-preset/02-gcr-ssh.preset << 'EOF'
 enable gcr-ssh-agent.socket
 EOF
@@ -120,7 +116,7 @@ systemctl enable --global niri-init.service
 systemctl enable --global gcr-ssh-agent.socket
 systemctl enable --global gcr-ssh-agent.service
 
-dnf -y copr disable avengemedia/dms
+dnf -y copr disable duxlabs/dms
 dnf -y copr disable scottames/ghostty
 dnf -y copr disable yalter/niri
 
