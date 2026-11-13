@@ -18,5 +18,4 @@ RUN --mount=type=bind,from=ctx,src=/,dst=/ctx \
   /ctx/01_bazzite.sh && \
   /ctx/02_plasma.sh && \
   /ctx/99_cleanup.sh && \
-  ostree container commit && \
   bootc container lint
