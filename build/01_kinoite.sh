@@ -49,6 +49,7 @@ dnf -y install \
   podman-compose \
   podman-docker \
   qemu \
+  socat \
   steam-devices \
   vim \
   wl-clipboard \

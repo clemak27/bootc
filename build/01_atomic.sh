@@ -61,6 +61,7 @@ dnf -y install \
   podman-docker \
   powerstat \
   qemu \
+  socat \
   switcheroo-control \
   tuned \
   tuned-ppd \

@@ -11,7 +11,13 @@ rsync -rvK /ctx/sys_files/usr/lib/systemd/system/nix.mount /usr/lib/systemd/syst
 systemctl enable --global dotfiles-init.service
 systemctl enable --global flatpak-preinstall.service
 
-dnf -y install podman-docker zsh
+# packages
+
+dnf -y install \
+  podman-docker \
+  socat \
+  zsh
+
 dnf -y remove ptyxis
 
 # nix
